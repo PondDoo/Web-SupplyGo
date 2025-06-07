@@ -6,7 +6,6 @@ export const API_URL = "http://10.5.50.228:5000";
 
 interface LoginResponse {
   token: string;
-  userId: number;
 }
 
 
@@ -50,13 +49,13 @@ export const loginUser = async (
       password,
     });
 
-    const { token, userId } = response.data || {};
+    const { token, } = response.data || {};
 
-    if (!token || !userId) {
-      throw new Error("Login failed: Missing token or userId");
+    if (!token) {
+      throw new Error("Login failed: Missing token ");
     }
 
-    return { token, userId };
+    return { token};
   } catch (error: unknown) {
     const err = error as AxiosError<{ message?: string }>;
     const errorMsg =

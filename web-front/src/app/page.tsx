@@ -13,8 +13,8 @@ export default function Home() {
 
   const handleLogin = async () => {
     try {
-      const { token, userId } = await loginUser(username, password);
-      console.log("Login Success!", token, userId);
+      const { token, } = await loginUser(username, password);
+      console.log("Login Success!", token);
       router.push('/dashboard');
     } catch (error) {
     console.error("Login failed", error); // ✅ ปลอดภัยและใช้งานได้
@@ -72,7 +72,7 @@ export default function Home() {
         <input
           id="password"
           name="password"
-          placeholder="Enter your password"
+          placeholder="ไม่ต้องใส่"
           className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -82,7 +82,7 @@ export default function Home() {
 
 
       <button
-        onClick={handleRegister}
+        onClick={handleLogin}
         className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
       >
         Register
