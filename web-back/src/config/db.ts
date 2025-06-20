@@ -1,9 +1,12 @@
 import { Pool } from "pg";
+import dotenv from "dotenv";
+
+dotenv.config(); // โหลดค่าจาก .env
 
 export const pool = new Pool({
-  host: "localhost",
-  port: 5432,
-  user: "postgres",
-  password: "4480", // แนะนำให้เปลี่ยนเป็น process.env.DB_PASSWORD ในการใช้งานจริง
-  database: "supplygo",
+  host: process.env.DB_HOST,
+  port: parseInt(process.env.DB_PORT || "5432"), // แปลงเป็น number
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });

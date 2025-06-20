@@ -15,7 +15,7 @@ export const RegisterUser = async (
   email : string
 ): Promise<void> =>{
    try{
-    const response = await axios.post(`${API_URL}/register`, {
+    const response = await axios.post(`${API_URL}/api/register`, {
       username,
       password,
       email
@@ -36,15 +36,12 @@ export const RegisterUser = async (
 }
 
 
-
-
-
 export const loginUser = async (
   username: string,
   password: string,
 ): Promise<LoginResponse> => {
   try {
-    const response = await axios.post<LoginResponse>(`${API_URL}/login`, {
+    const response = await axios.post<LoginResponse>(`${API_URL}/api/login`, {
       username,
       password,
     });

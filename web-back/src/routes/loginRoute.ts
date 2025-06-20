@@ -16,7 +16,7 @@ loginRoute.post("/login", async (req: Request, res: Response): Promise<void> => 
   }
 
   try {
-    const query = "SELECT userId, password FROM users WHERE username = $1";
+    const query = "SELECT user_id, password FROM users WHERE username = $1";
     const result = await pool.query(query, [username]);
 
     if (result.rows.length === 0) {
